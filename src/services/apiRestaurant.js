@@ -52,3 +52,10 @@ export async function updateOrder(id, updateObj) {
     throw Error('Failed updating your order')
   }
 }
+
+////////////////////////////////////////////////
+
+export async function menuLoader() {
+  const menu = await getMenu()
+  return menu
+}
