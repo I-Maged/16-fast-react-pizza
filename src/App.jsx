@@ -6,6 +6,8 @@ import Menu from './features/menu/Menu'
 import Cart from './features/cart/Cart'
 import CreateOrder from './features/order/CreateOrder'
 import Order from './features/order/Order'
+import Loader from './ui/Loader'
+import NotFound from './ui/NotFound'
 
 import { menuLoader } from './services/apiRestaurant'
 
@@ -21,9 +23,10 @@ const router = createBrowserRouter([
         path: '/menu',
         element: <Menu />,
         loader: menuLoader,
+        errorElement: <NotFound />,
 
         // render during initial hydration
-        // hydrateFallbackElement: <h1>Loading...</h1>,
+        hydrateFallbackElement: <Loader />,
       },
       {
         path: '/cart',
