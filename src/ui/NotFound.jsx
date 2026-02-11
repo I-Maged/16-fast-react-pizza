@@ -12,7 +12,6 @@ const NotFound = () => {
     <div>
       {isRouteErrorResponse(error) ? (
         <div>
-          <h1>1</h1>
           <h1>
             {error.status} {error.statusText}
           </h1>
@@ -20,7 +19,6 @@ const NotFound = () => {
         </div>
       ) : error instanceof Error ? (
         <div>
-          <h1>2</h1>
           <h1>Error</h1>
           <p>{error.message}</p>
         </div>

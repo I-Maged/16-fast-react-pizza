@@ -4,12 +4,14 @@ import AppLayout from './ui/AppLayout'
 import Home from './ui/Home'
 import Menu from './features/menu/Menu'
 import Cart from './features/cart/Cart'
-import CreateOrder from './features/order/CreateOrder'
+import CreateOrder, {
+  action as createOrderAction,
+} from './features/order/CreateOrder'
 import Order from './features/order/Order'
 import Loader from './ui/Loader'
 import NotFound from './ui/NotFound'
 
-import { menuLoader } from './services/apiRestaurant'
+import { menuLoader, orderLoader } from './services/apiRestaurant'
 
 const router = createBrowserRouter([
   {
@@ -35,10 +37,14 @@ const router = createBrowserRouter([
       {
         path: '/order/new',
         element: <CreateOrder />,
+        action: createOrderAction,
       },
       {
         path: '/order/:orderId',
         element: <Order />,
+        loader: orderLoader,
+        errorElement: <NotFound />,
+        hydrateFallbackElement: <Loader />,
       },
     ],
   },
