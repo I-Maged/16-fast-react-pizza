@@ -15,11 +15,15 @@ const AppLayout = () => {
 
       <Header />
 
-      {/* <div> */}
-      <main className="flex h-full w-full items-center justify-center">
+      <div className="overflow-scroll">
+        <main className="mx-auto max-w-3xl">
+          <Outlet />
+        </main>
+      </div>
+
+      {/* <main className="flex h-full w-full items-center justify-center">
         <Outlet />
-      </main>
-      {/* </div> */}
+      </main> */}
 
       <CartOverview />
     </div>
