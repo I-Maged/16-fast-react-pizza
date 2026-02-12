@@ -1,25 +1,29 @@
-import { Outlet } from 'react-router-dom'
-import { useNavigation } from 'react-router-dom'
-import Header from './Header'
-import Loader from './Loader'
-import CartOverview from '../features/cart/CartOverview'
+import { Outlet } from "react-router-dom";
+import { useNavigation } from "react-router-dom";
+import Header from "./Header";
+import Loader from "./Loader";
+import CartOverview from "../features/cart/CartOverview";
 
 const AppLayout = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
-  const isLoading = navigation.state === 'loading'
+  const isLoading = navigation.state === "loading";
 
   return (
-    <div className='layout'>
+    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       {isLoading && <Loader />}
 
       <Header />
-      <main>
+
+      {/* <div> */}
+      <main className="flex h-full w-full items-center justify-center">
         <Outlet />
       </main>
+      {/* </div> */}
+
       <CartOverview />
     </div>
-  )
-}
+  );
+};
 
-export default AppLayout
+export default AppLayout;
