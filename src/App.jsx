@@ -1,28 +1,28 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import AppLayout from './ui/AppLayout'
-import Home from './ui/Home'
-import Menu from './features/menu/Menu'
-import Cart from './features/cart/Cart'
+import AppLayout from "./ui/AppLayout"
+import Home from "./ui/Home"
+import Menu from "./features/menu/Menu"
+import Cart from "./features/cart/Cart"
 import CreateOrder, {
   action as createOrderAction,
-} from './features/order/CreateOrder'
-import Order from './features/order/Order'
-import Loader from './ui/Loader'
-import NotFound from './ui/NotFound'
+} from "./features/order/CreateOrder"
+import Order from "./features/order/Order"
+import Loader from "./ui/Loader"
+import NotFound from "./ui/NotFound"
 
-import { menuLoader, orderLoader } from './services/apiRestaurant'
+import { menuLoader, orderLoader } from "./services/apiRestaurant"
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home />,
       },
       {
-        path: '/menu',
+        path: "/menu",
         element: <Menu />,
         loader: menuLoader,
         errorElement: <NotFound />,
@@ -31,16 +31,16 @@ const router = createBrowserRouter([
         hydrateFallbackElement: <Loader />,
       },
       {
-        path: '/cart',
+        path: "/cart",
         element: <Cart />,
       },
       {
-        path: '/order/new',
+        path: "/order/new",
         element: <CreateOrder />,
         action: createOrderAction,
       },
       {
-        path: '/order/:orderId',
+        path: "/order/:orderId",
         element: <Order />,
         loader: orderLoader,
         errorElement: <NotFound />,
