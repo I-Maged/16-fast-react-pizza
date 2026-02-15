@@ -10,6 +10,7 @@ import CreateOrder, {
 import Order from "./features/order/Order"
 import Loader from "./ui/Loader"
 import NotFound from "./ui/NotFound"
+import { action as updateOrderAction } from "./features/order/UpdateOrder"
 
 import { menuLoader, orderLoader } from "./services/apiRestaurant"
 
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
         element: <Order />,
         loader: orderLoader,
         errorElement: <NotFound />,
+        action: updateOrderAction,
         hydrateFallbackElement: <Loader />,
       },
     ],
